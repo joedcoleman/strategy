@@ -1,0 +1,5 @@
+Flask==0.12.2
+gunicorn==19.7.1
+google-cloud-language==1.0.0
+numpy==1.13.3
+gevent==1.2.2

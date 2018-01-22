@@ -1,0 +1,49 @@
+{% extends "parent.html" %}
+{% block content %}      
+<div class="container">
+  <div class="col-md-5 col-centered">
+      <div class="form-area">  
+          <form method="post" role="form" enctype="multipart/form-data" action="{{ url_for('upload_csv') }}">
+          <br style="clear:both">
+            <h3 style="margin-bottom: 25px; text-align: center;">Process a CSV<br>
+              <small class="text-muted" style="font-size: 18px">Your file must contain a <code>url</code> column</small></h3>
+            <div class="form-group">
+              <label class="custom-file">
+              <input type="file" name="data_file" id="data_file" class="custom-file-input">
+              <span class="custom-file-control"></span>
+              </label>
+            </div>
+            <div class="form-group">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" name="classify_urls" class="custom-control-input" checked disabled>
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Classify URLs</span>
+                </label>
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" name="root_domains" class="custom-control-input" checked>
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Add Root Domain Field</span>
+                </label>
+            </div>
+            <hr class="separator">
+            <div class="form-group">
+              <div class="custom-controls-stacked">
+                <label class="custom-control custom-radio">
+                  <input id="radioStacked1" name="radio_append" value="on" type="radio" class="custom-control-input" checked>
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Append columns to existing file</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input id="radioStacked2" name="radio_append" value="off" type="radio" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Create a new file</span>
+                </label>
+              </div>
+            </div>
+            <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Process</button>
+            <p style="font-size: 14px; margin-top: 15px; margin-bottom: -20px"><i>Large files may take several minutes to process</i></p>
+          </form>
+      </div>
+  </div>
+</div>
+{% endblock %}
